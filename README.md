@@ -8,7 +8,7 @@ your name and that code to find the ID.
 It's about usability.  If humans ever need to type Active Record database IDs into a form for some
 reason, then don't make them type a huge number, give them a short code.  (An argument can be made
 that if humans ever need to type record IDs into forms then you have bigger UX problems than the
-record ID format, and this is very true.)
+record ID format and probably security problems also, and this is very true.)
 
 One way to provide an easier ID to type is to use Base 36.  It takes an integer and returns a really
 short string that you can convert back to that integer again.  And it's really easy to use with
