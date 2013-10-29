@@ -22,11 +22,12 @@ Ruby:
 
 The problem with "5O6AQT1" is the second character.  Is that an "O" or a "0"?  And that last
 character, is that a "1" or an "I"?  And "Q" is a land mine too.  It can look a lot like an "O" or
-"0".
+"0", especially if you can't control the typeface that it's printed in.
 
 What we really need is Base 31.  We want to use Base 36, but without the potentially confusing
-characters.  That's the Record Locator gem.  I needed this gem and it didn't exist, so I
-commissioned the impeccable services of Mr. Abdul Barek in Bangladesh, who did a fantastic job.
+characters, "O", "0", "1", "I", or "Q".  That's the Record Locator gem.  I needed this gem and it
+didn't exist, so I commissioned the impeccable services of Mr. Abdul Barek in Bangladesh, who did a
+fantastic job.
 
 # How to install
 
