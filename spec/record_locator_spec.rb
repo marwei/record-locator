@@ -7,22 +7,39 @@ describe 'RecordLocator' do
 
   describe 'EncoderAndDecoder' do
 
-    it "Should check equality of original value with decoded value" do
-      original = 202345
-      encoded = Util::Base::encode(original)
-      decoded = Util::Base::decode(encoded)
-      original.should == decoded
+    it "Should produce an encoded ID that the original ID can be recovered from" do
+      100000.times do
+        original = rand(999999999999999)
+        encoded = Util::Base::encode(original)
+        decoded = Util::Base::decode(encoded)
+        original.should == decoded
+      end
     end
 
-    it "Should not contain potentially-confusing characters(l,1,0,O,Q) after encode" do
-      original = 12345678909876321
-      encoded = Util::Base::encode(original)
-      encoded = encoded.split("")
-      encoded.include?('l').should == false
-      encoded.include?('1').should == false
-      encoded.include?('0').should == false
-      encoded.include?('O').should == false
-      encoded.include?('Q').should == false
+    it "Should not contain potentially-confusing characters (l,1,0,O,Q) after encode" do
+      100000.times do
+        original = rand(999999999999999)
+        encoded = Util::Base::encode(original)
+        encoded = encoded.split("")
+        encoded.include?('l').should == false
+        encoded.include?('1').should == false
+        encoded.include?('0').should == false
+        encoded.include?('O').should == false
+        encoded.include?('Q').should == false
+      end
+    end
+
+    it "Should not produce any collisions." do
+      originals = {}
+      encodeds = {}
+      100000.times do
+        original = rand(999999)
+        next if originals.has_key? original
+        originals[original] = true
+        encoded = Util::Base::encode(original)
+        encodeds.has_key?(encoded).should == false
+        encodeds[encoded] = true
+      end
     end
 
   end
