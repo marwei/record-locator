@@ -45,7 +45,7 @@ describe 'RecordLocator' do
   end
 
   before(:each) do
-    @book = Book.find_or_create_by_publisher_id 1234567890
+    @book = Book.find_or_create_by_publisher_id rand(999999999999999)
   end
 
   it "Should return defined record locator filed" do
