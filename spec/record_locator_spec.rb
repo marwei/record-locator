@@ -69,9 +69,14 @@ describe 'RecordLocator' do
     @book.class.should == Book.record_locator.find(encoded_field).class
   end
 
-  it "Should return Original ActiveRecord Object found by defined encoded filed instead of Active record finder" do
+  it "Should return original ActiveRecord object found by encoded field instead of Active Record ID" do
     encoded_field = @book.encoded_record_locator
     @book.should === Book.record_locator.find(encoded_field)
+  end
+
+  it "Should return original ActiveRecord object found by original Active Record ID" do
+    encoded_field = @book.encoded_record_locator
+    @book.should === Book.record_locator.find(@book.id)
   end
 
 end
