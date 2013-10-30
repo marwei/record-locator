@@ -6,13 +6,15 @@ require File.expand_path(File.dirname(__FILE__) + '/../models/book')
 describe 'RecordLocator' do
 
   describe 'EncoderAndDecoder' do
+
     it "Should check equality of original value with decoded value" do
       original = 202345
       encoded = Util::Base::encode(original)
       decoded = Util::Base::decode(encoded)
       original.should == decoded
     end
-    it "Should not contain confused characters(l,1,0,O,Q) after encode" do
+
+    it "Should not contain potentially-confusing characters(l,1,0,O,Q) after encode" do
       original = 12345678909876321
       encoded = Util::Base::encode(original)
       encoded = encoded.split("")
@@ -22,6 +24,7 @@ describe 'RecordLocator' do
       encoded.include?('O').should == false
       encoded.include?('Q').should == false
     end
+
   end
 
   before(:each) do
@@ -53,6 +56,5 @@ describe 'RecordLocator' do
     encoded_field = @book.encoded_record_locator
     @book.should === Book.record_locator.find(encoded_field)
   end
-
 
 end
