@@ -26,6 +26,7 @@ module Util
 
     def self.decode(string)
       string = string.to_s
+      return string if string.split('').include?('1') || string.split('').include?('0') # as 0 and 1 are included into exceptional chars
       ring = Util::DECODER[Util::BASE31]
       base = Util::BASE31.length
       string.reverse.chars.with_index.inject(0) do |sum,(char,i)|
