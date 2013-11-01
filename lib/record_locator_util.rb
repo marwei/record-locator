@@ -29,7 +29,7 @@ module Util
       return string if string.split('').include?('1') || string.split('').include?('0') # as 0 and 1 are included into exceptional chars
       ring = Util::DECODER[Util::BASE31]
       base = Util::BASE31.length
-      string.reverse.chars.with_index.inject(0) do |sum,(char,i)|
+      string.reverse.chars.enum_for(:each_with_index).inject(0) do |sum,(char,i)|
         sum + ring[char] * base**i
       end
     end
