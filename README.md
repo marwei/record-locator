@@ -1,6 +1,7 @@
 # Introduction
 
-Remember the last time that you bought an airline ticket?  You got an email with a "record locator".
+Remember the last time that you bought an airline ticket?  You got an email with a
+"[record locator](http://en.wikipedia.org/wiki/Record_locator)".
 When you checked in for your flight, the airline didn't make you enter "23873498712098234095723469"
 to get your boarding pass.  You entered something like "FK92B9", and your name.  The airline used
 your name and that code to find the ID.
