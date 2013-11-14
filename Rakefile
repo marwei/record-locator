@@ -17,10 +17,10 @@ Jeweler::Tasks.new do |gem|
   gem.name = "record-locator"
   gem.homepage = "http://github.com/VenueDriver/record-locator"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "rap@endymion.com"
-  gem.authors = ["Ryan Alyn Porter"]
+  gem.summary = %Q{Use Base-27 encoding to shorten ID strings for easier data entry.}
+  gem.description = %Q{A Base-36 encoding for integer database IDs without potentially confusing character pairs like 5 and S, B and 8, I and 1, O and 0, or Q}
+  gem.email = "work@endymion.com"
+  gem.authors = ["Abdul Barek", "Ryan Alyn Porter"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
