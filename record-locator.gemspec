@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "lib/record-locator.rb",
     "models/book.rb",
     "record-locator.gemspec",
+    "spec/models/record-locator_spec.rb",
     "spec/schema.rb",
     "spec/spec_helper.rb",
     "tddium.yml"
