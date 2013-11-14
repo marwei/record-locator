@@ -7,15 +7,15 @@ module Util
     h[k] = Hash[ k.chars.map.enum_for(:each_with_index).to_a ]
   end
 
-  # 0 through 9 plus A through Z, without O0I1 or Q.
+  # 0 through 9 plus A through Z, without B8S5O0I1 or Q.
   # "23456789ABCDEFGHJKLMNPRSTUVWXYZ"
-  BASE31 = (('0'..'9').to_a + ('A'..'Z').to_a).delete_if{|char| char =~ /[O0I1Q]/}.join
+  BASE27 = (('0'..'9').to_a + ('A'..'Z').to_a).delete_if{|char| char =~ /[B8S5O0I1Q]/}.join
 
   class Base
 
     def self.encode(value)
-      ring = Util::ENCODER[Util::BASE31]
-      base = Util::BASE31.length
+      ring = Util::ENCODER[Util::BASE27]
+      base = Util::BASE27.length
       result = []
       until value == 0
         result << ring[ value % base ]
@@ -27,8 +27,8 @@ module Util
     def self.decode(string)
       string = string.to_s
       return string if string.split('').include?('1') || string.split('').include?('0') # as 0 and 1 are included into exceptional chars
-      ring = Util::DECODER[Util::BASE31]
-      base = Util::BASE31.length
+      ring = Util::DECODER[Util::BASE27]
+      base = Util::BASE27.length
       string.reverse.chars.enum_for(:each_with_index).inject(0) do |sum,(char,i)|
         sum + ring[char] * base**i
       end

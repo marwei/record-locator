@@ -22,12 +22,20 @@ Ruby:
 
 The problem with "5O6AQT1" is the second character.  Is that an "O" or a "0"?  And that last
 character, is that a "1" or an "I"?  And "Q" is a land mine too.  It can look a lot like an "O" or
-"0", especially if you can't control the typeface that it's printed in.
+"0", especially if you can't control the typeface that it's printed in.  A "5" can also look like an "S", or vice versa.  And "B" and "8" can be confused in the same way.
 
-What we really need is Base 31.  We want to use Base 36, but without the potentially confusing
-characters, "O", "0", "1", "I", or "Q".  That's the Record Locator gem.  I needed this gem and it
+What we really need is Base 27.  We want to use Base 36, but without the potentially confusing
+characters, "B", "8", "5", "S", "O", "0", "1", "I", or "Q".  That's the Record Locator gem.  I needed this gem and it
 didn't exist, so I commissioned the impeccable services of Mr. Abdul Barek in Bangladesh, who did a
 fantastic job.
+
+# COMPATIBILITY WARNING
+
+**WARNING:** This gem is **NOT** compatible with the
+[PHP record locator](https://github.com/jakoubek/php-recordlocator) or the
+[Perl record locator](http://search.cpan.org/~jesse/Number-RecordLocator-0.005/lib/Number/RecordLocator.pm)
+libraries.  Those libraries include potentially-confusing characters like "O" and "I".  IDs encoded
+with either of those libraries cannot be decoded using this library.
 
 # How to install
 
@@ -46,7 +54,7 @@ Suppose, you want to apply this encoding stuff on your Book Model's publisher_id
       has_record_locator :publisher_id
     end
 
-**Now restart your server!**
+Now restart your server.
 
 **has_record_locator will expect Numeric field only (here publisher_id is Integer)**
 
