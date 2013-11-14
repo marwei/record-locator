@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ["Abdul Barek", "Ryan Alyn Porter"]
   s.date = "2013-11-14"
   s.description = "A Base-36 encoding for integer database IDs without potentially confusing character pairs like 5 and S, B and 8, I and 1, O and 0, or Q"
-  s.email = "work@endymion.com"
+  s.email = "rap@endymion.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
