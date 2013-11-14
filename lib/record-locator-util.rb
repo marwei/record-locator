@@ -8,7 +8,7 @@ module Util
   end
 
   # 0 through 9 plus A through Z, without B8S5O0I1 or Q.
-  # "23456789ABCDEFGHJKLMNPRSTUVWXYZ"
+  # "234679ACDEFGHJKLMNPRTUVWXYZ"
   BASE27 = (('0'..'9').to_a + ('A'..'Z').to_a).delete_if{|char| char =~ /[B8S5O0I1Q]/}.join
 
   class Base

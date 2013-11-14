@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../lib/record_locator')
+require File.expand_path(File.dirname(__FILE__) + '/../lib/record-locator')
 
 class Book < ActiveRecord::Base
   extend RecordLocator

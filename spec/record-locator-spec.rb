@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require File.expand_path(File.dirname(__FILE__) + '/../lib/record_locator_util')
+require File.expand_path(File.dirname(__FILE__) + '/../lib/record-locator-util')
 require File.expand_path(File.dirname(__FILE__) + '/../models/book')
 
 describe 'RecordLocator' do
