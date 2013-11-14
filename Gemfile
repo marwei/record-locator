@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-gemspec
 
 group :test, :development do
   gem 'rails', '~> 3.2' do
