@@ -42,7 +42,7 @@ with either of those libraries cannot be decoded using this library.
 
 Include the gem into your Gemfile:
 
-    gem 'record_locator', '1.0.0', :git => 'git@github.com:VenueDriver/record_locator.git'
+    gem 'record-locator'
 
 Then run
 
