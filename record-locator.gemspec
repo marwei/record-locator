@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Abdul Barek", "Ryan Alyn Porter"]
-  s.date = "2013-11-14"
+  s.authors = ["Abdul Barek", "Ryan Alyn Porter, Wei Zhu"]
+  s.date = "2015-07-05"
   s.description = "A Base-36 encoding for integer database IDs without potentially confusing character pairs like 5 and S, B and 8, I and 1, O and 0, or Q"
-  s.email = "rap@endymion.com"
+  s.email = "yo@weiz.hu"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
@@ -23,8 +23,8 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "lib/record-locator-finder.rb",
-    "lib/record-locator-util.rb",
+    "lib/record-locator/record-locator-finder.rb",
+    "lib/record-locator/record-locator-util.rb",
     "lib/record-locator.rb",
     "models/book.rb",
     "record-locator.gemspec",
