@@ -1,5 +1,6 @@
-require File.expand_path(File.dirname(__FILE__) + '/record-locator-util')
-require File.expand_path(File.dirname(__FILE__) + '/record-locator-finder')
+require File.join(File.dirname(__FILE__), "record-locator/record-locator-util")
+require File.join(File.dirname(__FILE__), "record-locator/record-locator-finder")
+
 
 module RecordLocator
 
@@ -30,3 +31,5 @@ module RecordLocator
   end
 
 end
+
+p 
