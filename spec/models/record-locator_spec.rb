@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require File.expand_path(File.dirname(__FILE__) + '../../../lib/record-locator-util')
+require File.expand_path(File.dirname(__FILE__) + '../../../lib/record-locator/record-locator-util')
 require File.expand_path(File.dirname(__FILE__) + '../../../models/book')
 
 describe 'RecordLocator' do
@@ -45,10 +45,11 @@ describe 'RecordLocator' do
   end
 
   before(:each) do
-    @book = Book.find_or_create_by_publisher_id rand(999999999999999)
+    publisher_id = rand(999999999999999)
+    @book = Book.find_or_create_by(publisher_id: publisher_id)
   end
 
-  it "Should return defined record locator filed" do
+  it "Should return defined record locator field" do
     @book.record_locator_field.should == :publisher_id
   end
 
