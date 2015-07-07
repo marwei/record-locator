@@ -14,9 +14,9 @@ class Finder
     #@model.where("#{@record_locator_field}=?", Util::Base::decode(id.to_s))
 
     # supported until rails 4.0 from rails 2.3
-    records = @model.find(:all, :conditions => "#{@record_locator_field}='#{Util::Base::decode(id.to_s)}'")
+    records = @model.where("#{@record_locator_field} = ?", Util::Base::decode(id.to_s))
     if records.empty?
-      records = @model.find(:all, :conditions => "#{@record_locator_field}='#{id}'")
+      records = @model.where("#{@record_locator_field} = ?", id)
     end
     return records
   end
