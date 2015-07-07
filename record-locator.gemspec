@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/record-locator/record-locator-finder.rb",
     "lib/record-locator/record-locator-util.rb",
+    "lib/record-locator/version.rb",
     "lib/record-locator.rb",
     "models/book.rb",
     "record-locator.gemspec",
