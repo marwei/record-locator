@@ -12,7 +12,7 @@ describe 'RecordLocator' do
         original = rand(999999999999999)
         encoded = Util::Base::encode(original)
         decoded = Util::Base::decode(encoded)
-        original.should == decoded
+        expect(original).to eq decoded
       end
     end
 
@@ -20,12 +20,7 @@ describe 'RecordLocator' do
       100000.times do
         original = rand(999999999999999)
         encoded = Util::Base::encode(original)
-        encoded = encoded.split("")
-        encoded.include?('l').should == false
-        encoded.include?('1').should == false
-        encoded.include?('0').should == false
-        encoded.include?('O').should == false
-        encoded.include?('Q').should == false
+        expect(encoded.split("")).not_to include('l', '1', '0', 'O', 'Q')
       end
     end
 
@@ -37,7 +32,7 @@ describe 'RecordLocator' do
         next if originals.has_key? original
         originals[original] = true
         encoded = Util::Base::encode(original)
-        encodeds.has_key?(encoded).should == false
+        expect(encodeds.has_key?(encoded)).to be false
         encodeds[encoded] = true
       end
     end
@@ -50,35 +45,34 @@ describe 'RecordLocator' do
   end
 
   it "Should return defined record locator field" do
-    @book.record_locator_field.should == :publisher_id
+    expect(@book.record_locator_field).to eq :publisher_id
   end
 
   it "Should not have record locator field nil" do
-    @book.encoded_record_locator.should_not be_nil
+    expect(@book.encoded_record_locator).to_not be_nil
   end
 
   it "Should equal ActiveRecord locator decoded value with original ActiveRecord field value" do
-    @book.publisher_id.should == Util::Base::decode(Util::Base::encode(@book.publisher_id))
+    expect(@book.publisher_id).to eq Util::Base::decode(Util::Base::encode(@book.publisher_id))
   end
 
   it "Should Return class type Finder" do
-    Book.record_locator.class.to_s.should == 'Finder'
+    expect(Book.record_locator).to be_instance_of Finder
   end
 
   it "Should Return class type Book" do
     encoded_field = @book.encoded_record_locator
-    @book.class.should == Book.record_locator.find(encoded_field).class
+    expect(Book.record_locator.find(encoded_field)).to be_a Book
   end
 
   it "Should return Original ActiveRecord Object found by defined encoded filed instead of Active record finder" do
     encoded_field = @book.encoded_record_locator
-    @book.should === Book.record_locator.find(encoded_field)
+    expect(Book.record_locator.find(encoded_field)).to eq @book
   end
 
   it "Should return Activerecord Object by passing normal id instead of passing encoded id" do
     publisher_id = @book.publisher_id
-
-    @book.should === Book.record_locator.find(publisher_id)
+    expect(Book.record_locator.find(publisher_id)).to eq @book
   end
 
 
