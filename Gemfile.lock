@@ -123,8 +123,8 @@ PLATFORMS
 
 DEPENDENCIES
   jeweler (~> 1.8.8)
-  rails
-  rspec
+  rails (~> 4.1)
+  rspec (~> 3.4)
   sqlite3
 
 BUNDLED WITH
